@@ -27,7 +27,7 @@ public class TanqueCombustivel {
     public boolean abastece(TipoCombustivel tipoCombustivel, int quantidade) {
         if (tipoCombustivel != this.tipoCombustivel) {
             if (this.tipoCombustivel == TipoCombustivel.FLEX) {
-                if (!(tipoCombustivel == TipoCombustivel.GASOLINA || tipoCombustivel == TipoCombustivel.ALCOOL)) {
+                if (!(tipoCombustivel == TipoCombustivel.GASOLINA || tipoCombustivel == TipoCombustivel.ALCOOL || tipoCombustivel == TipoCombustivel.DIESEL)) {
                     return false;
                 }
             } else {
