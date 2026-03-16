@@ -3,10 +3,17 @@ public class Motor {
     private TipoCombustivel tipoMotor;
     private int consumo; // em quilometros por unidade. Ex: Km/Lt
     private int quilometragem;
+    private in consumoAlcool;
 
     public Motor(TipoCombustivel tipoMotor, int consumo) {
         this.tipoMotor = tipoMotor;
         this.consumo = consumo;
+    }
+
+    public Motor(TipoCombustivel tipoMotor1, int consumo1, int consumo2) {
+        this.tipoMotor = tipoMotor1;
+        this.consumo = consumo1;
+        this.consumoAlcool = consumo2;
     }
 
     public int getConsumo() {
