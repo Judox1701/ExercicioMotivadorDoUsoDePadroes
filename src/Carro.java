@@ -4,10 +4,22 @@ public class Carro {
     private Motor motor;
     private TanqueCombustivel tanque;
 
-    public Carro(String modelo, TanqueCombustivel TanqueCombustivel, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
+    public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
         this.modelo = modelo;
         motor = new Motor(tipoCombustivel, consumoMotor);
         tanque = new TanqueCombustivel(tipoCombustivel, capacidadeTanque);
+    }
+    
+    public Carro(String modelo, TanqueCombustivel TanqueCombustivel, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
+        this.modelo = modelo;
+        motor = new Motor(tipoCombustivel, consumoMotor);
+        tanque = new TanqueCombustivel(TanqueCombustivel, capacidadeTanque);
+    }
+
+    public Carro(String modelo, TanqueCombustivel TanqueCombustivel, TipoCombustivel tipoCombustivel1, int consumoMotor1, TipoCombustivel tipoCombustivel2, int consumoMotor2, int capacidadeTanque) {
+        this.modelo = modelo;
+        motor = new Motor(tipoCombustivel, consumoMotor);
+        tanque = new TanqueCombustivel(TanqueCombustivel, capacidadeTanque);
     }
 
     public String getModelo() {
