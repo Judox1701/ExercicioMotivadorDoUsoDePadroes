@@ -33,12 +33,22 @@ public class Carro {
     // Retorna a quantidade efetivamente abastecida
     public int abastece(TipoCombustivel tipoCombustivel, int quantidade) {
         int capacidadeLivre = tanque.getCapacidade() - tanque.getCombustivelDisponivel();
-        if (capacidadeLivre < quantidade) {
-            tanque.abastece(tipoCombustivel, capacidadeLivre);
-            return capacidadeLivre;
-        } else {
-            tanque.abastece(tipoCombustivel, quantidade);
-            return quantidade;
+        if(Motor.consumo1 != 0 && Motor.consumo2 != 0){
+            if (capacidadeLivre < quantidade) {
+                tanque.abastece(tipoCombustivel, capacidadeLivre);
+                return capacidadeLivre;
+            } else {
+                tanque.abastece(tipoCombustivel, quantidade);
+                return quantidade;
+            }
+        }else{
+            if (capacidadeLivre < quantidade) {
+                tanque.abastece(tipoCombustivel, capacidadeLivre);
+                return capacidadeLivre;
+            } else {
+                tanque.abastece(tipoCombustivel, quantidade);
+                return quantidade;
+            }
         }
     }
 
