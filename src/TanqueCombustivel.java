@@ -1,17 +1,23 @@
 public class TanqueCombustivel {
 
     private TipoCombustivel tipoCombustivel;
+    private TipoCombustivel tipoCombustivelAtual;
     private int capacidade;
     private int combustivelDisponivel;
 
     public TanqueCombustivel(TipoCombustivel tipoCombustivel, int capacidade) {
         this.tipoCombustivel = tipoCombustivel;
+        this.tipoCombustivelAtual = tipoCombustivel;
         this.capacidade = capacidade;
         this.combustivelDisponivel = 0;
     }
 
     public TipoCombustivel getTipoCombustivel() {
         return tipoCombustivel;
+    }
+
+    public TipoCombustivel getTipoCombustivelAtual() {
+        return tipoCombustivelAtual;
     }
 
     public int getCapacidade() {
@@ -38,6 +44,9 @@ public class TanqueCombustivel {
             return false;
         } else {
             combustivelDisponivel += quantidade;
+            if (this.tipoCombustivel == TipoCombustivel.FLEX) {
+                this.tipoCombustivelAtual = tipoCombustivel;
+            }
             return true;
         }
     }
@@ -47,6 +56,9 @@ public class TanqueCombustivel {
             return false;
         } else {
             combustivelDisponivel -= quantidade;
+            if (combustivelDisponivel == 0) {
+                tipoCombustivelAtual = tipoCombustivel;
+            }
             return true;
         }
     }

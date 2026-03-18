@@ -3,7 +3,7 @@ public class Motor {
     private TipoCombustivel tipoMotor;
     private int consumo; // em quilometros por unidade. Ex: Km/Lt
     private int quilometragem;
-    private in consumoAlcool;
+    private int consumoAlcool;
 
     public Motor(TipoCombustivel tipoMotor, int consumo) {
         this.tipoMotor = tipoMotor;
@@ -20,6 +20,10 @@ public class Motor {
         return this.consumo;
     }
 
+    public int getConsumo2() {
+        return this.consumoAlcool;
+    }
+
     public TipoCombustivel getTipoMotor(){
         return this.tipoMotor;
     }
@@ -29,6 +33,13 @@ public class Motor {
     }
 
     public int combustivelNecessario(int distancia) {
+        return distancia / consumo;
+    }
+
+    public int combustivelNecessario(int distancia, TipoCombustivel tipoCombustivel) {
+        if (tipoCombustivel == TipoCombustivel.ALCOOL && consumoAlcool > 0) {
+            return distancia / consumoAlcool;
+        }
         return distancia / consumo;
     }
 
